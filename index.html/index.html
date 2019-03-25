@@ -2,79 +2,79 @@
 <html lang="en-us">
 
 <head>
-    <meta charset="utf-8">
-    <title>Psychic Game</title>
+	<meta charset="utf-8">
+	<title>Psychic Game</title>
 </head>
 
 <body>
 
-    <div id="game">
-        <h1> Madame Compubots Thinking Game </h1>
-        <p>Insert 1 BTC for 1 Guess!</p>
-        <p>correct:</p>
-        <p>incorrect:</p>
-        <p>fortunes Left:</p>
-        <p>Your Guesses so far:</p>
-    </div>
+	<div id="game">
+		<h1> Madame Compubots Thinking Game </h1>
+		<p>Insert 1 BTC for 1 Guess!</p>
+		<p>correct:</p>
+		<p>incorrect:</p>
+		<p>fortunes Left:</p>
 
-    <script type="text/javascript">
+	</div>
 
-        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+	<script type="text/javascript">
 
-        var wins = 0;
-        var losses = 0;
-        var numGuesses = 9;
-        var guessChoices = [];
-        document.onkeyup = function (event) {
-            var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-            var userGuess = event.key;
+		var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
-            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+		var wins = 0;
+		var losses = 0;
+		var numGuesses = 9;
+		var guessChoices = [];
+		document.onkeyup = function (event) {
+			var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+			var userGuess = event.key;
 
-
-            if (letters.indexOf(userGuess) > -1) {
-
-                if (userGuess === computerGuess) {
-                    wins++;
-                    numGuesses = 9;
-                    guessChoices = [];
-                }
-
-                if (userGuess != computerGuess) {
-                    numGuesses--;
-                    guessChoices.push(userGuess);
-                }
-                if (userGuess != computerGuess) {
-                    numGuesses--;
-                    guessChoices.push(userGuess);
-                }
-
-                if (numGuesses === 0) {
-
-                    numGuesses = 9;
-                    losses++;
-                    guessChoices = [];
+			var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 
-                }
-                var html =
-                    "<h4> Madame Compubots Thinking Game" +
-                    "<p>zorp zorp, guess my mmmmletterrr!</p>" +
-                    
-                    
-                    
-                    "<p>Wins: " + wins + "</p>" +
+			if (letters.indexOf(userGuess) > -1) {
 
-                    "<p>Losses: " + losses + "</p>"
+				if (userGuess === computerGuess) {
+					wins++;
+					numGuesses = 9;
+					guessChoices = [];
+				}
 
-                    
-                document.querySelector("#game").innerHTML = html;
+				if (userGuess != computerGuess) {
+					numGuesses--;
+					guessChoices.push(userGuess);
+				}
+				if (userGuess != computerGuess) {
+					numGuesses--;
+					guessChoices.push(userGuess);
+				}
+
+				if (numGuesses === 0) {
+
+					numGuesses = 9;
+					losses++;
+					guessChoices = [];
 
 
-            }
-        };
+				}
+				var html =
+					"<h4> Madame Compubots Thinking Game" +
+					"<p>zorp zorp, guess my mmmmletterrr!</p>" +
 
-    </script>
+
+
+					"<p>Wins: " + wins + "</p>" +
+
+					"<p>Losses: " + losses + "</p>"
+
+
+				document.querySelector("#game").innerHTML = html;
+
+
+			}
+		};
+
+	</script>
 
 </body>
 
